@@ -1,0 +1,411 @@
+body{
+    background-color: #f5f6f7;
+}
+.divProdutos{
+    width: 100%;
+    display:inline-block;
+    padding: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    clear: both;
+    height: auto;
+}
+@media only screen and (max-width: 900px){
+    .divProdutos{
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        height: auto;
+        display: table;
+        clear: both;
+    }
+}
+.logosMarcas{
+    width: 100%;
+    height: auto;
+}
+.column {
+    width: 50%;
+    height: 800px;
+    float: left;
+    padding: 20px;
+}
+.combos{
+    width: 100%;
+    margin: auto;
+    padding: 1%;
+}
+.imagensDoCombo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    height: 600px;
+}
+@media only screen and (max-width: 900px){
+    .imagensDoCombo{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        height: auto;
+    }
+}
+.imagenslanche{
+    width: 60%;
+    height: 540px;
+    margin: auto;
+    display: block;
+}
+@media only screen and (max-width: 900px){
+    .imagenslanche{
+        width: 140px;
+        height: 140px;
+    }
+}
+img{
+    width: 75%;
+    height: auto;
+    vertical-align: middle;
+}
+.carrinho{
+    width: 220px;
+    height: auto;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+@media only screen and (max-width: 900px){
+    .carrinho{
+        width: 110px;
+        height: auto;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+}
+}
+.header {
+    background-color: #9c9c9c;
+    width: 100%;
+    float:left;
+    text-align: center;
+}
+@media only screen and (max-width: 900px){
+    #header{
+        background-color: #9c9c9c;
+        text-align: start;
+        width: 100%;
+        height: auto;
+    }
+}
+@font-face {
+    src: url(fonte.ttf);
+    font-family: another danger;
+}
+#header2 {
+    background-color: #777777;
+    font-family: another danger;
+    font-size:x-large;
+    width: 100%;
+    line-height: 200%;
+    float: left;
+    text-align: center;
+    vertical-align: middle;
+}
+@media only screen and (max-width: 900px){
+    #header{
+        background-color: #777777;
+        text-align: start;
+        width: 100%;
+        height: auto;
+    }
+}
+#logo{
+    max-width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#logo2{
+    max-width: 50%;
+    vertical-align: center;
+    text-align: center;
+}
+
+.div3{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.produtosCombos{
+    font-family: Tahoma, sans-serif;
+    background-color: #cecece;
+    font-size: small;
+    width: 100%;
+    line-height: 200%;
+    text-align:center
+}
+.links{
+    margin:auto;
+    padding: 5px;
+    width: 5%;
+    height: 100%;
+}
+@media only screen and (max-width: 900px){
+    .links{
+        margin:auto;
+        padding: 5px;
+        width: 15%;
+        height: 100%;
+    }
+}
+.required{
+    color: #eb3540;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+    display: block;
+}
+.cardPosters {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+    float:initial;
+}
+@media only screen and (max-width: 900px){
+    .card{
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 350px;
+        margin: auto;
+        text-align:center;
+        font-family: arial;
+        float:none
+    }
+} 
+.shop-item-price {
+    color: grey;
+    flex-grow: 1;
+    font-size: 22px;
+}
+  
+.card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+  
+.card button:hover {
+    opacity: 0.7;
+}
+
+.cardPosters button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+  
+.cardPosters button:hover {
+    opacity: 0.7;
+}
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5em;
+}
+.section-header {
+    font-family: "Metal Mania";
+    font-weight: normal;
+    color: #333;
+    text-align: center;
+    font-size: 2.5em;
+}
+.btn-danger:hover {
+    background-color: #CC4C4C;
+}
+.btn-end{
+    margin: 3px;
+}
+
+.cart-row {
+    display: flex;
+}
+.cart-item {
+    width: 45%;
+}
+
+.cart-price {
+    width: 20%;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.cart-quantity {
+    width: 35%;
+}
+
+.cart-item-title {
+    color: #333;
+    margin-left: .5em;
+    font-size: 1.2em;
+}
+
+.cart-item-image {
+    width: 75px;
+    height: auto;
+    border-radius: 10px;
+}
+.cart-quantity-input {
+    height: 34px;
+    width: 50px;
+    border-radius: 5px;
+    border: 1px solid #56CCF2;
+    background-color: #eee;
+    color: #333;
+    padding: 0;
+    text-align: center;
+    font-size: 1.2em;
+    margin-right: 25px;
+}
+
+.cart-row:last-child {
+    border-bottom: 1px solid black;
+}
+
+.cart-row:last-child .cart-column {
+    border: none;
+}
+
+.cart-total {
+    text-align: end;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.cart-total-title {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: black;
+    margin-right: 20px;
+}
+
+.cart-total-price {
+    color: #333;
+    font-size: 1.1em;
+}
+
+.btn-purchase {
+    display: block;
+    margin: 40px auto 80px auto;
+    font-size: 1.75em;
+}
+.shop-item {
+    margin: 30px;
+}
+
+.shop-item-title {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.shop-item-details {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.shop-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.modal-bg{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s opacity 0,5s;
+}
+.bg-active{
+    visibility: visible;
+    opacity: 1;
+}
+.modal{
+    position: relative;
+    background-color: white;
+    width: 30%;
+    height: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+.modal-close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.modal-content{
+    margin: 1.7;
+    max-width: 600px;
+    height: calc(100% - 100px);
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.modal-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+}
+.form-control {
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 0;
+    padding: 10px;
+    height: auto;
+    font-size: 14px;
+}
+.modal-types{
+    padding: 5px;
+    width: 100%;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 2px;
+}
