@@ -150,7 +150,6 @@ function sendinfo(){
     var numero = document.getElementById("numero").value
     var complemento = document.getElementById("complemento").value
     var t = updateCartTotal()
-    console.log(t)
     var url = 
         "https://wa.me/5511972829249?text="
         + "*Nome: *" + nome + "%0a"
@@ -169,4 +168,49 @@ function sendinfo(){
     window.open(url,"_blank").focus();
     alert("Obrigado por comprar na monster burguer, seu pedido estará pronto em breve")
 }
+
+function distanceMatrix(){
+    var geocoder = new google.maps.Geocoder();
+    var endereco = document.getElementById("endereco").value
+    let address = endereco;
+    geocoder.geocode({ address: address }, (results, status) => {
+        if (status === "OK") {
+            // Display response in the console
+            const latitude = results[0].geometry.location.Lat();
+            const longitude = results[0].geometry.location.Lng();
+        } else {
+            alert("Geocode error: " + status);
+        }
+})
+    var origin1 = new google.maps.LatLng(-23.458407235079875, -46.58866252096937);
+    var destinationA = new google.maps.LatLng(latitude,longitude);
+
+    var service = new google.maps.DistanceMatrixService();
+    service.getDistanceMatrix({
+        origins: [origin1],
+        destinations: [destinationA],
+        travelMode: 'DRIVING',
+    }, callback)
+    }
+    function callback(response, status) {
+        if (status == 'OK') {
+          var origins = response.originAddresses;
+          var destinations = response.destinationAddresses;
+      
+          for (var i = 0; i < origins.length; i++) {
+            var results = response.rows[i].elements;
+            for (var j = 0; j < results.length; j++) {
+              var element = results[j];
+              var distance = element.distance.text;
+              var duration = element.duration.text;
+              var from = origins[i];
+              var to = destinations[j];
+              
+            }
+          }
+        }
+    console.log(distance,duration)    
+}
 document.getElementsByClassName('btn-end')[0].addEventListener('click',sendinfo)
+document.getElementById('endereco').addEventListener('focusout',distanceMatrix)
+
