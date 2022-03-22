@@ -85,7 +85,7 @@ img{
 }
 }
 .header {
-    background-color: #9c9c9c;
+    background-color: rgb(0, 0, 0);
     width: 100%;
     float:left;
     text-align: center;

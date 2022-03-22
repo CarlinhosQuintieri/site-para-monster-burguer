@@ -59,11 +59,11 @@ function addToCartClicked(event) {
     var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
     produtos.push(title)
     preco.push(price)
-    console.log('clicou aq' + produtos)
+    console.log(price)
     addItemToCart(title, price)
     updateCartTotal()
 }
-
+// adiciona o item selecionado no carrinh 
 function addItemToCart(title, price) {
     var cartRow = document.createElement('div')
     cartRow.classList.add('cart-row')
@@ -89,7 +89,7 @@ function addItemToCart(title, price) {
     cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
     cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
 }
-
+// atualiza o valor total do carrinho 
 function updateCartTotal() {
     var cartItemContainer = document.getElementsByClassName('cart-items')[0]
     var cartRows = cartItemContainer.getElementsByClassName('cart-row')
@@ -113,6 +113,7 @@ var modalClose = document.querySelector('.modal-close');
 function purchaseBtnClicked(){
     modalBg.classList.add('bg-active')
 }
+// fechar o modal 
 modalClose.addEventListener('click',function(){
     modalBg.classList.remove('bg-active')
 });
@@ -163,7 +164,8 @@ function sendinfo(){
         + "*Complemento: *" + complemento + "%0a"
         + "*Produtos: *" + produtos + "%0a"
         + "*Preço dos produtos: *" + preco + "%0a"
-        + "*total a pagar : "+"R$"+ t +"*"+ "%0a"
+        + "*Frete a pagar: *" + "R$" + frete + "%0a"
+        + "*total a pagar sem frete :" + "R$" + t +"*"+ "%0a"
         
     window.open(url,"_blank").focus();
     alert("Obrigado por comprar na monster burguer, seu pedido estará pronto em breve")
@@ -173,25 +175,24 @@ function distanceMatrix(){
     var geocoder = new google.maps.Geocoder();
     var endereco = document.getElementById("endereco").value
     let address = endereco;
-    geocoder.geocode({ address: address }, (results, status) => {
-        if (status === "OK") {
+     geocoder.geocode({ address: address }, (results, status) => {
             // Display response in the console
-            const latitude = results[0].geometry.location.Lat();
-            const longitude = results[0].geometry.location.Lng();
-        } else {
-            alert("Geocode error: " + status);
-        }
+            var latitude = results[0].geometry.location.lat();
+            var longitude = results[0].geometry.location.lng();
+            console.log(latitude,longitude)
+            var origin1 = new google.maps.LatLng(-23.452274214976352, -46.56748671352249);
+            var destinationA = new google.maps.LatLng(latitude,longitude);
+        
+            var service = new google.maps.DistanceMatrixService();
+            service.getDistanceMatrix({
+                origins: [origin1],
+                destinations: [destinationA],
+                travelMode: 'DRIVING',
+            }, callback)
 })
-    var origin1 = new google.maps.LatLng(-23.458407235079875, -46.58866252096937);
-    var destinationA = new google.maps.LatLng(latitude,longitude);
-
-    var service = new google.maps.DistanceMatrixService();
-    service.getDistanceMatrix({
-        origins: [origin1],
-        destinations: [destinationA],
-        travelMode: 'DRIVING',
-    }, callback)
-    }
+}
+//fim do distance matrix
+//inicio da callback function que me da os valores de distance 
     function callback(response, status) {
         if (status == 'OK') {
           var origins = response.originAddresses;
@@ -209,8 +210,49 @@ function distanceMatrix(){
             }
           }
         }
-    console.log(distance,duration)    
+    calculaFrete(distance)
+    console.log(distance,duration,to,from)    
+}
+const frete = []
+function calculaFrete(distance){
+    console.log(distance)
+    if (distance <= "2 km"){
+        alert('Frete: R$ 4,00')
+        frete.push(4)
+    }
+    else if(distance > "2 km" && distance < "3 km"){
+        alert('Frete: R$ 5,50')
+        frete.push(5,50)
+    }
+    else if(distance > "3 km" && distance < "4 km"){
+        alert('Frete: R$ 7,00')
+        frete.push(7)
+    }
+    else if(distance > "4 km" && distance < "5 km"){
+        alert('Frete: R$ 8,50')
+        frete.push(8,50)
+    }
+    else if(distance > "5 km" && distance < "6 km"){
+        alert('Frete: R$ 10,00')
+        frete.push(10)
+    }
+    else if(distance > "6 km" && distance < "7 km"){
+        alert('Frete: R$ 11,50')
+        frete.push(11,50)
+    }
+    else if(distance > "7 km" && distance < "8 km"){
+        alert('Frete: R$ 13,00')
+        frete.push(13)
+    }
+    else if(distance > "8 km" && distance < "9 km"){
+        alert('Frete: R$ 14,50')
+        frete.push(14,50)
+    }
+    else{
+        alert('erro')
+    }
 }
 document.getElementsByClassName('btn-end')[0].addEventListener('click',sendinfo)
-document.getElementById('endereco').addEventListener('focusout',distanceMatrix)
+document.getElementsByClassName('btn-frete')[0].addEventListener('click',distanceMatrix)
+
 
