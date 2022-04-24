@@ -153,7 +153,7 @@ function sendinfo(){
     var t = updateCartTotal()
     var soma = parseInt(t) + parseInt(frete)
     var url = 
-        "https://wa.me/5511972829249?text="
+        "https://wa.me/551198854902?text="
         + "*Nome: *" + nome + "%0a"
         + "*Telefone: *" + telefone + "%0a"
         + "*Entrega: *" + selectedValue + "%0a"
@@ -254,6 +254,7 @@ function calculaFrete(distance){
     }
 }
 document.getElementsByClassName('btn-end')[0].addEventListener('click',sendinfo)
+document.getElementById('numero').addEventListener('focusout',distanceMatrix)
 document.getElementsByClassName('btn-frete')[0].addEventListener('click',distanceMatrix)
 
 
