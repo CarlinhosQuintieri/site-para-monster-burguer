@@ -151,6 +151,7 @@ function sendinfo(){
     var numero = document.getElementById("numero").value
     var complemento = document.getElementById("complemento").value
     var t = updateCartTotal()
+    var soma = parseInt(t) + parseInt(frete)
     var url = 
         "https://wa.me/5511972829249?text="
         + "*Nome: *" + nome + "%0a"
@@ -165,7 +166,7 @@ function sendinfo(){
         + "*Produtos: *" + produtos + "%0a"
         + "*Preço dos produtos: *" + preco + "%0a"
         + "*Frete a pagar: *" + "R$" + frete + "%0a"
-        + "*total a pagar sem frete :" + "R$" + t +"*"+ "%0a"
+        + "*total a pagar:" + "R$" + soma +"*"+ "%0a"
         
     window.open(url,"_blank").focus();
     alert("Obrigado por comprar na monster burguer, seu pedido estará pronto em breve")

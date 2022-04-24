@@ -4,7 +4,7 @@ body{
 .divProdutos{
     width: 100%;
     display:inline-block;
-    padding: 5%;
+    padding: 5px;
     margin-left: auto;
     margin-right: auto;
     clear: both;
@@ -30,8 +30,17 @@ body{
     float: left;
     padding: 20px;
 }
+@media only screen and (max-width: 900px){
+    .column{
+        width: 50%;
+        height: 640px;
+        max-height: 800px;
+        float: left;
+        padding: 20px;
+    }
+}
 .combos{
-    width: 100%;
+    width: 350px;
     margin: auto;
     padding: 1%;
 }
@@ -182,6 +191,7 @@ img{
     .card{
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         max-width: 350px;
+        height: 370px;
         margin: auto;
         text-align:center;
         font-family: arial;
