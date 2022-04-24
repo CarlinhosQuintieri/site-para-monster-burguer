@@ -255,6 +255,5 @@ function calculaFrete(distance){
 }
 document.getElementsByClassName('btn-end')[0].addEventListener('click',sendinfo)
 document.getElementById('numero').addEventListener('focusout',distanceMatrix)
-document.getElementsByClassName('btn-frete')[0].addEventListener('click',distanceMatrix)
 
 
