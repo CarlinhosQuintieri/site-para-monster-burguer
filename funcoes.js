@@ -223,7 +223,7 @@ function calculaFrete(distance){
     }
     else if(distance > "2 km" && distance <= "3 km"){
         alert('Frete: R$ 5,50')
-        frete.push(5,50)
+        frete.push(5.50)
     }
     else if(distance > "3 km" && distance <= "4 km"){
         alert('Frete: R$ 7,00')
@@ -231,7 +231,7 @@ function calculaFrete(distance){
     }
     else if(distance > "4 km" && distance <= "5 km"){
         alert('Frete: R$ 8,50')
-        frete.push(8,50)
+        frete.push(8.50)
     }
     else if(distance > "5 km" && distance <= "6 km"){
         alert('Frete: R$ 10,00')
@@ -239,7 +239,7 @@ function calculaFrete(distance){
     }
     else if(distance > "6 km" && distance <= "7 km"){
         alert('Frete: R$ 11,50')
-        frete.push(11,50)
+        frete.push(11.50)
     }
     else if(distance > "7 km" && distance <= "8 km"){
         alert('Frete: R$ 13,00')
@@ -247,7 +247,7 @@ function calculaFrete(distance){
     }
     else if(distance > "8 km" && distance <= "9 km"){
         alert('Frete: R$ 14,50')
-        frete.push(14,50)
+        frete.push(14.50)
     }
     else{
         alert('erro')
