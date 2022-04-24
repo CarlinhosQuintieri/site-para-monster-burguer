@@ -151,9 +151,9 @@ function sendinfo(){
     var numero = document.getElementById("numero").value
     var complemento = document.getElementById("complemento").value
     var t = updateCartTotal()
-    var soma = parseInt(t) + parseInt(frete)
+    var soma = parseFloat(t) + parseFloat(frete)
     var url = 
-        "https://wa.me/551198854902?text="
+        "https://wa.me/5511988549026?text="
         + "*Nome: *" + nome + "%0a"
         + "*Telefone: *" + telefone + "%0a"
         + "*Entrega: *" + selectedValue + "%0a"
