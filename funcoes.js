@@ -37,9 +37,11 @@ function purchaseClicked() {
     updateCartTotal()
 }
 
-function removeCartItem(event) {
+function removeCartItem(event,title,price) {
     var buttonClicked = event.target
     buttonClicked.parentElement.parentElement.remove()
+    produtos.pop(title)
+    preco.pop(price)
     updateCartTotal()
 }
 
@@ -69,12 +71,7 @@ function addItemToCart(title, price) {
     cartRow.classList.add('cart-row')
     var cartItems = document.getElementsByClassName('cart-items')[0]
     var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
-    for (var i = 0; i < cartItemNames.length; i++) {
-        if (cartItemNames[i].innerText == title) {
-            alert('voce ja adicionou este item ao carrinho')
-            return
-        }
-    }
+
     var cartRowContents = `
         <div class="cart-item cart-column">
             <span class="cart-item-title">${title}</span>
@@ -137,10 +134,34 @@ const pesquisarCep = async() =>{
 }
 document.getElementById('zipCode').addEventListener('focusout',pesquisarCep)
 
+// printa no recibo produto, preco, produto, preco.....
+
+function intercale() {
+    var arrayResult = [];
+    var total = 0;
+    if (produtos.length > preco.length) {
+      total = produtos.length;
+    } else {
+      total = preco.length;
+    }
+  
+    for (var i = 0; i < total; i++) {
+      if (produtos[i]) {
+        arrayResult.push(produtos[i]);
+      }
+      if (preco[i]) {
+        arrayResult.push(preco[i]);
+      }
+    }
+  
+    return arrayResult;
+  }
 
 //mandar pelo wpp:
 
+
 function sendinfo(){
+    var teste = intercale()
     var nome = document.getElementById("name").value
     var telefone = document.getElementById("telefone").value
     var selectedValue = document.getElementById("listLugar").value
@@ -163,8 +184,7 @@ function sendinfo(){
         + "*Endereço*: " + endereco + "%0a"
         + "*Numero: *" + numero + "%0a"
         + "*Complemento: *" + complemento + "%0a"
-        + "*Produtos: *" + produtos + "%0a"
-        + "*Preço dos produtos: *" + preco + "%0a"
+        + "*Produtos: *" + teste + "%0a"
         + "*Frete a pagar: *" + "R$" + frete + "%0a"
         + "*total a pagar:" + "R$" + soma +"*"+ "%0a"
         
@@ -255,5 +275,4 @@ function calculaFrete(distance){
 }
 document.getElementsByClassName('btn-end')[0].addEventListener('click',sendinfo)
 document.getElementById('numero').addEventListener('focusout',distanceMatrix)
-
 
